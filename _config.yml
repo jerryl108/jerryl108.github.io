@@ -17,10 +17,11 @@ title: Jerry Linder
 email: glz67@mst.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Jerry Linder's personal website.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/startjekyll" # the subpath of your site, e.g. /blog
+url: "https://jerryl108.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
 twitter_username: jekyllrb
-github_username:  jekyll
+github_username:  jerryl108
 
 # Build settings
 markdown: kramdown
@@ -37,9 +38,10 @@ kramdown:
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
+exclude:
+  - serve.sh
+  - Gemfile
+  - Gemfile.lock
 #   - node_modules
 #   - vendor/bundle/
 #   - vendor/cache/
