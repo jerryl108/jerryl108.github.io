@@ -31,7 +31,7 @@ plugins:
 
 sass:
   sass_dir: _sass
-include: ['_pages']
+include: ['_pages','_pages/projects']
 kramdown:
   input: GFM
 
