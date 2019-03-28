@@ -3,20 +3,26 @@
 	<div class="container">
 		<nav>
 			<ul>
-				{% for page in site.pages %} {% if page.nav-parent == nil %}{% if page.title or page.nav-title %}
+			{% assign nav_dropdowns = site.pages | group_by:"nav-parent" %}
+			{% for page in site.pages %}
+			{% if page.nav-parent == nil %}
+				{% if page.title or page.nav-title %}
 				<div>
 				<li><a href="{{ page.url | prepend: site.baseurl }}">
 					{% if page.nav-title %}{{ page.nav-title }}{% else %}{{ page.title }}{% endif %}
 				</a></li>
-				<ul class="subnav">
-					{% for _page in site.pages %} {% if _page.nav-parent == page.title %}
-					<li><a href="{{ _page.url | prepend: site.baseurl }}">
-							{% if _page.nav-title %}{{ _page.nav-title }}{% else %}{{ _page.title }}{% endif %}
+				<ul class="nav_dropdown">
+				{% for _group in nav_dropdowns %}{% if _group.name == page.title %}
+					{% for dropdown_item in _group.items %}
+					<li><a href="{{ dropdown_item.url | prepend: site.baseurl }}">
+						{% if dropdown_item.nav-title %}{{ dropdown_item.nav-title }}{% else %}{{ dropdown_item.title }}{% endif %}
 					</a></li>
-					{% endif %} {% endfor %}
+					{% endfor %}
+				{% endif %} {% endfor %}
 				</ul>
 				</div>
-				{% endif %}{% endif %} {% endfor %}
+				{% endif %}
+			{% endif %} {% endfor %}
 				<li><a href="{{ "/blog" | prepend: site.baseurl }}">Blog</a></li>
 			</ul>
 			</li>
