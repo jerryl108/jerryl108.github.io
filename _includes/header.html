@@ -3,9 +3,20 @@
 	<div class="container">
 		<nav>
 			<ul>
-				{% for page in site.pages %} {% if page.title %}
-				<li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-				{% endif %} {% endfor %}
+				{% for page in site.pages %} {% if page.nav-parent == nil %}{% if page.title or page.nav-title %}
+				<div>
+				<li><a href="{{ page.url | prepend: site.baseurl }}">
+					{% if page.nav-title %}{{ page.nav-title }}{% else %}{{ page.title }}{% endif %}
+				</a></li>
+				<ul class="subnav">
+					{% for _page in site.pages %} {% if _page.nav-parent == page.title %}
+					<li><a href="{{ _page.url | prepend: site.baseurl }}">
+							{% if _page.nav-title %}{{ _page.nav-title }}{% else %}{{ _page.title }}{% endif %}
+					</a></li>
+					{% endif %} {% endfor %}
+				</ul>
+				</div>
+				{% endif %}{% endif %} {% endfor %}
 				<li><a href="{{ "/blog" | prepend: site.baseurl }}">Blog</a></li>
 			</ul>
 			</li>
