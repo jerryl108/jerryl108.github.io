@@ -42,7 +42,7 @@ header {
 	text-align: center;
 	margin: 50px 0 0;
 	height: 50vh;
-	//display: flex;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 }
@@ -78,14 +78,6 @@ aside {
 			margin: 0;
 			padding: 0;
 			list-style: none;
-			float: left;
-			display:block;
-			.dropdown-container {
-				background-color: #FFF;
-				float: left;
-				position: relative;
-				//border: 1px solid black;
-			}
 			li {
 				float: left;
 				position: relative;
@@ -104,22 +96,13 @@ aside {
 						color: $main;
 					}
 				}
-				ul {
-					display: none;
-					//border: 1px solid black;
-					margin: 0px;
-					width: 100%;
-					li {
-						float: none;
-						width: 100%;
-					}
-				}
-				&:hover ul {
-					display: block;
-				}
 			}
 		}
-
+		&:after {
+			content: '';
+			display: table;
+			clear: both;
+		}
 	}
 }
 footer {

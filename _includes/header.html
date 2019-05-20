@@ -7,25 +7,24 @@
 			{% for page in site.pages %}
 			{% if page.nav-parent == nil %}
 				{% if page.title or page.nav-title %}
-				<div>
+				<span class="dropdown-container">
 				<li><a href="{{ page.url | prepend: site.baseurl }}">
 					{% if page.nav-title %}{{ page.nav-title }}{% else %}{{ page.title }}{% endif %}
-				</a></li>
-				<ul class="nav_dropdown">
+				</a>
 				{% for _group in nav_dropdowns %}{% if _group.name == page.title %}
+					<ul>
 					{% for dropdown_item in _group.items %}
-					<li><a href="{{ dropdown_item.url | prepend: site.baseurl }}">
-						{% if dropdown_item.nav-title %}{{ dropdown_item.nav-title }}{% else %}{{ dropdown_item.title }}{% endif %}
-					</a></li>
+						<li><a href="{{ dropdown_item.url | prepend: site.baseurl }}">
+							{% if dropdown_item.nav-title %}{{ dropdown_item.nav-title }}{% else %}{{ dropdown_item.title }}{% endif %}
+						</a></li>
 					{% endfor %}
+					</ul>
 				{% endif %} {% endfor %}
-				</ul>
-				</div>
+				</li>
+				</span>
 				{% endif %}
 			{% endif %} {% endfor %}
 				<li><a href="{{ "/blog" | prepend: site.baseurl }}">Blog</a></li>
-			</ul>
-			</li>
 			</ul>
 		</nav>
 	</div>
