@@ -16,5 +16,5 @@ function setup_sticky_nav()
         }
     }
 
-    document.onscroll(update_nav)
+    document.onscroll = update_nav;
 }
