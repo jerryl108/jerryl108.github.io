@@ -17,10 +17,10 @@ title: Jerry Linder
 email: glz67@mst.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Jerry Linder's personal website.
-baseurl: "/startjekyll" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jerryl108.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
-twitter_username: jekyllrb
+#twitter_username: jekyllrb
 github_username:  jerryl108
 
 # Build settings
