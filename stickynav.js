@@ -1,6 +1,6 @@
 function setup_sticky_nav()
 {
-    var nav_element = document.getElementsByTagName("nav")[0];
+    var nav_element = document.getElementsByTagName("aside")[0];
 
     var trigger_height = nav_element.offsetTop;
 
