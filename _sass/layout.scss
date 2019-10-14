@@ -103,9 +103,34 @@ time {
 				z-index: inherit;
 				//position: relative;
 				//border: 1px solid black;
+				&:hover {
+					a {
+						color: $light;
+						border-width: 0px 1px 0px 1px;
+						border-style: solid;
+						border-color: $light;
+					}
+					a:hover {
+						color: $main;
+					}
+					ul {
+						display: block;
+						a {
+							color: $link-color;
+							border: none;
+						}
+						a:hover {
+							color: $main;
+						}
+						border-width: 0px 1px 1px 1px;
+						border-style: solid;
+						border-color: $header;
+					}
+					background-color: $header;
+				}
 			}
 			li {
-				background: #fff;
+				//background: #fff;
 				float: left;
 				z-index: inherit;
 				//position: relative;
@@ -118,6 +143,9 @@ time {
 					margin-bottom: -1px;
 					box-shadow: 0;
 					z-index: inherit;
+					border-width: 0px 1px 0px 1px;
+					border-style: solid;
+					border-color: transparent;
 					&:hover,
 					&:active {
 						background: $header;
@@ -126,6 +154,7 @@ time {
 					}
 				}
 				ul {
+					background: #fff;
 					display: none;
 					//border: 1px solid black;
 					margin: 0px;
@@ -136,8 +165,9 @@ time {
 						width: 100%;
 					}
 				}
-				&:hover ul {
-					display: block;
+				.nav-current {
+					background: $header;
+					color: $light;
 				}
 			}
 		}

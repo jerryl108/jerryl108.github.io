@@ -4,14 +4,14 @@
 		<nav>
 			<ul>
 			{% assign nav_dropdowns = site.pages | group_by:"nav-parent" %}
-			{% for page in site.pages %}
-			{% if page.nav-parent == nil %}
-				{% if page.title or page.nav-title %}
+			{% for _page in site.pages %}
+			{% if _page.nav-parent == nil %}
+				{% if _page.title or _page.nav-title %}
 				<span class="dropdown-container">
-				<li><a href="{{ page.url | prepend: site.baseurl }}">
-					{% if page.nav-title %}{{ page.nav-title }}{% else %}{{ page.title }}{% endif %}
+				<li><a {% if page.title == _page.title %} class="nav-current" {% endif %} href="{{ _page.url | prepend: site.baseurl }}">
+					{% if _page.nav-title %}{{ _page.nav-title }}{% else %}{{ _page.title }}{% endif %}
 				</a>
-				{% for _group in nav_dropdowns %}{% if _group.name == page.title %}
+				{% for _group in nav_dropdowns %}{% if _group.name == _page.title %}
 					<ul>
 					{% for dropdown_item in _group.items %}
 						<li><a href="{{ dropdown_item.url | prepend: site.baseurl }}">
