@@ -27,7 +27,7 @@
 				{% endif %}
 				{% assign subpages = nil %}
 			{% endif %} {% endfor %}
-				<li><a href="{{ "/blog" | prepend: site.baseurl }}">Blog</a></li>
+				<li><a {% if layout.layout == post %} class="nav-current" {% endif %} href="{{ "/blog" | prepend: site.baseurl }}">Blog</a></li>
 			</ul>
 		</nav>
 	</div>
