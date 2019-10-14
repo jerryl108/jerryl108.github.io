@@ -5,24 +5,27 @@
 			<ul>
 			{% assign nav_dropdowns = site.pages | group_by:"nav-parent" %}
 			{% for _page in site.pages %}
-			{% if _page.nav-parent == nil %}
+				{% if _page.nav-parent == nil %}
+				{% for _group in nav_dropdowns %}{% if _group.name == _page.title %}
+					{% assign subpages = _group.items %}
+				{% endif %} {% endfor %}
 				{% if _page.title or _page.nav-title %}
 				<span class="dropdown-container">
 				<li><a {% if page.title == _page.title %} class="nav-current" {% endif %} href="{{ _page.url | prepend: site.baseurl }}">
 					{% if _page.nav-title %}{{ _page.nav-title }}{% else %}{{ _page.title }}{% endif %}
+					{% if subpages != nil %}<i class="arrow down"></i>{% endif %}
 				</a>
-				{% for _group in nav_dropdowns %}{% if _group.name == _page.title %}
 					<ul>
-					{% for dropdown_item in _group.items %}
+					{% for dropdown_item in subpages %}
 						<li><a href="{{ dropdown_item.url | prepend: site.baseurl }}">
 							{% if dropdown_item.nav-title %}{{ dropdown_item.nav-title }}{% else %}{{ dropdown_item.title }}{% endif %}
 						</a></li>
 					{% endfor %}
 					</ul>
-				{% endif %} {% endfor %}
 				</li>
 				</span>
 				{% endif %}
+				{% assign subpages = nil %}
 			{% endif %} {% endfor %}
 				<li><a href="{{ "/blog" | prepend: site.baseurl }}">Blog</a></li>
 			</ul>
