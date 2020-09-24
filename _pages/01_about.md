@@ -2,7 +2,7 @@
 layout: page
 title: About
 permalink: /about/
-header-text: I'm a computer science student graduating this Spring 2020 semester from Missouri S&T. I also have some experience with doing creative with in other media including graphic/web design as well as with photography and video production.
+header-text: I'm a computer science student graduating this Fall 2020 semester from Missouri S&T. I also have some experience with doing creative with in other media including graphic/web design as well as with photography and video production.
 ---
 
 For more information:
